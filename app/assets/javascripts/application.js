@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  var deficit = 0 ;
+  $(".mpText>textarea").on("keyup",function(){
+    var len = $(this).val().length;
+
+    if (len > 140) {
+
+      $("span").text("-" + (deficit++)).css("color","#BD002B");
+    } else {
+      $("span").text(140-len).css("color","#146504").css("font-weight", "900");
+    }
+  });
+});
